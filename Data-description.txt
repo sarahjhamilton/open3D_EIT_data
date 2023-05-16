@@ -1,0 +1,72 @@
+Below are the details of the experimental EIT data that was collected on the ACT 5 system on 5/28/21 and used in the following publication: 
+
+Sarah J Hamilton, P A Muller, D Isaacson, V Kolehmainen, J Newell, O Rajabi Shishvan, G Saulnier,
+and J Toivanen, Fast absolute 3d CGO-based electrical impedance tomography on experimental tank data,Physiological Measurement 43 (2022), no. 12, 124001.
+
+
+https://iopscience.iop.org/article/10.1088/1361-6579/aca26b/meta
+DOI 10.1088/1361-6579/aca26b
+
+
+Please see above manuscript for a more detailed description of the experimental protocol and tank design including electrode composition and locations.
+
+
+-----------------------------------------
+Experimental Setup:
+-----------------------------------------
+A 3D tank was constructed using 3/8 inch thick Plexiglas (interior dimensions 17.0cm x 25.5cm x 17.0cm) with 32 electrodes made from 16-gauge stainless steel of size 8cm x 8cm.  The top was removable to allow for the filling and removal of interior objects.
+
+The tank was filled with tap water, s=24 mS/m, so as to generate fairly large voltages.  The optimal current patterns were determined and are denoted "opt" in the filenames.  
+
+
+Note that currents were applied on all electrodes simultaneously and measured on all electrodes (including injecting electrodes).
+
+1Targ experiment: A conductive agar sphere was placed in the corner where electrodes 4, 10, 11 intersect by standing the sphere on a tripod of toothpicks. The target was effectively "centered" in the subregion.  The water (24 mS/m) was filled to the top and the top of the tank reattached.  The optimal, trig, and haar current patterns were each applied in turn and their corresponding voltages recorded.
+
+2Targ experiment: A second conductive agar sphere of the same material was then added to the 3, 8, 9 corner, again standing on a tripod of toothpicks.  The water (24 mS/m) was filled to the top and the top of the tank reattached.  The optimal, trig, and haar current patterns were each applied in turn and their corresponding voltages recorded.
+
+
+Finally, the targets were removed, the tank filled again with the same 24 mS/m water and the voltages were measured corresponding to the "optimal" current patterns as well as the standard trigonometric current patterns.
+
+
+-----------------------------------------
+Files:
+-----------------------------------------
+
+The following files are included for the voltage and current patterns.
+
+
+Tap Water only (saline)
+ACT5_05282021_100_saline_opt_gr.mat 	(data corresponding to applying the "optimal" current patterns).
+ACT5_05282021_100_saline_trig_gr.mat 	(data corresponding to applying the "trig" current patterns).
+
+
+1 Spherical Targets
+ACT5_05282021_100_1targ_opt_gr.mat 	(data corresponding to applying the "optimal" current patterns).
+ACT5_05282021_100_1targ_trig_gr.mat 	(data corresponding to applying the "trig" current patterns).
+ACT5_05282021_100_1targ_haar_gr.mat 	(data corresponding to applying the "haar" current patterns).
+
+2 Spherical Targets
+ACT5_05282021_100_2targ_opt_gr.mat 	(data corresponding to applying the "optimal" current patterns).
+ACT5_05282021_100_2targ_trig_gr.mat 	(data corresponding to applying the "trig" current patterns).
+ACT5_05282021_100_2targ_haar_gr.mat 	(data corresponding to applying the "haar" current patterns).
+
+-------------------------------------------------------
+Each ACT5_05282021..... file contains two data variables
+- current_patterns (32x31 matrix) corresponding to the current patterns applied. The ROWS correspond to the ELECTRODE number and each column is for a different current pattern applied.
+
+- frame_voltage (32x31x100 tensor) corresponding to the voltages for the currents applied.  100 frames of data were collected.  
+
+*** Note that currents were applied on all electrodes simultaneously and voltages were measured on all electrodes (including injecting electrodes). To ensure that the injected currents are summed to zero, a ground electrode was attached to electrode 21. The voltages have since been processed to have a mean of zero for each current pattern (i.e. sum(frame_voltage(:,CP,nn)) = 0 for each current pattern (CP) and frame (nn)).  Furthermore, only the real part of the voltages are included in the files.
+-------------------------------------------------------
+
+ACT5_box_mesh.mat 	(finite element mesh created by EIDORS)
+
+ACT5_box_eidors_sim.m 	(Matlab code to be used with EIDORS to simulate data on the box domain used here)
+
+ElectrodeLayout.xlsx 	(Excel file listing the locations of the electrodes)
+locations.m 		(Matlab file to visualize the box tank domain and electrode centers)
+
+
+Lastly, three photographs of the experiments are provided (OneTarg_SideView.jpg, OneTarg_TopView.jpg, and TwoTargs_TopView.jpg).
+ 
