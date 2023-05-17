@@ -24,8 +24,7 @@ clear;
 %% ==================== User input ========================================
 % Run EIDORS if it has not been started yet
 if exist('eidors','dir')==0
-    %     run 'YOUR PATH TO EIDORS HERE'
-    run '/Users/sarahhamilton/Dropbox/EIDORS/eidors-v3.10/eidors/startup.m' % laptop
+    %     run 'YOUR PATH TO EIDORS HERE'    
 end
 
 
